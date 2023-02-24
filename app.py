@@ -6,8 +6,14 @@ import time
 from google.cloud import translate_v2 as translate
 import urllib.request
 import deepspeech
+from waitress import serve
+
 
 app = Flask(__name__)
+
+
+if __name__ == '__main__':
+    serve(app, host='0.0.0.0', port=8080)
 
 # Initialize Google Translate API client
 translate_client = translate.Client()
